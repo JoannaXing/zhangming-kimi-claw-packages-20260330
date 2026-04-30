@@ -3,6 +3,11 @@ Private delivery assets for Kimi Claw skills and backup package
 
 ## 2026-04-30 refresh
 
+Updated again after diagnosing the Feishu document backfill stall:
+- Daily 00:30 sync intentionally writes local backup/Bitable first and queues doc writes.
+- Daily doc backfill now prioritizes newest pending videos and moves failed/rate-limited items behind normal pending items, so one old failed video no longer blocks newer entries.
+- Dry-run backfill no longer writes the daily dedupe stamp.
+
 Baseline:
 - Original delivery tag: `v2026-03-30` / commit `c2093d3`
 - Original local packages: `zhangming-kimi-claw-skills.zip` and `zhangming-kimi-claw-backups.zip`
@@ -24,8 +29,8 @@ New packages:
 Checksums:
 
 ```text
-8ef22ac583817610640beae93d3cff9178de65a8f553c4b6f644bd8514d9e0e2  rizaoli-kimi-claw-code-20260430.zip
-7659d68d527dea8f8f5ae489a1133fd1c3609aac389324a19ad3227f8fc7cef2  rizaoli-kimi-claw-data-20260430.zip
+d34f934aa1c2fb09dae2ea8daeed511ab1ee7accad987e14c8b0fa1de64d2923  rizaoli-kimi-claw-code-20260430.zip
+c8dffb6791c1998fb3a9e762e53cf6080e19061fe5cdd70c342d335395465b10  rizaoli-kimi-claw-data-20260430.zip
 ```
 
 Kimi Linux restore outline:
